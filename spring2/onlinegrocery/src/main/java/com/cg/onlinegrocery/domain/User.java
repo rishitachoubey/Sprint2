@@ -1,4 +1,10 @@
 package com.cg.onlinegrocery.domain;
+/**
+ * Pojo for User
+ * 
+ * @author Rupsi
+ *
+ */
 
 
 import java.util.Collection;
