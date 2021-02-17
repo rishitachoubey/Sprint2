@@ -29,8 +29,10 @@ public class Product {
 	private double productAmount;
 	@Column(name = "product_description")
 	private String productDescription;
+	private String availability;
 	
 	@OneToMany (mappedBy = "product")
+	@OneToMany (mappedBy = "order")
 	private List<Review> reviews = new ArrayList<>();
 
 	
@@ -72,6 +74,12 @@ public class Product {
 	}
 	public void setProductDescription(String description) {
 		this.productDescription = description;
+	}
+	public String getAvailability() {
+		return availability;
+	}
+	public void setAvailability(String availability) {
+		this.availability = availability;
 	}
 	public List<Review> getReviews() {
 		return reviews;
