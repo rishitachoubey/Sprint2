@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -15,6 +14,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
  * @author RC
  */
 
+//This table should have one to one mapping with customer
+
 @Entity
 @Table(name = "customer_orders")
 public class Order {
@@ -23,44 +24,31 @@ public class Order {
 	@Column(name = "order_id", unique = true, updatable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int orderId;
-	@NotBlank(message = "Customer Name Required")
+	
 	private String custName;
+	
 	private Double amount;
-
+	
+	@Column(updatable = false)
+	private String orderIdentifier;
 	
 
-	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-	@JoinTable(name = "ordereditems", joinColumns = @JoinColumn(name = "order_id"), inverseJoinColumns = @JoinColumn(name = "item_id"))
+	
+	@OneToMany(cascade = CascadeType.ALL,orphanRemoval = true, fetch = FetchType.EAGER, mappedBy = "order")
 	private List<Item> items = new ArrayList<>();
 
 	@Column(name = "order_date")
 	@JsonFormat(pattern = "yyyy-MM-dd")
-	private Date date;
+	private Date createdAt;
 
 	// constructors
 
 	public Order() {
-
-	}
-
-	/**
-	 * Parameterized constructor
-	 * 
-	 * @param orderId     - gives id of order
-	 * @param amount      - gives total amount for all items
-	 * @param custName-   gives customer name
-	 * @param items-      gives list of items
-	 * @param date-       gives order date
-	 */
-
-	public Order(int orderId, Double amount, String custName, List<Item> items, Date date) {
 		super();
-		this.orderId = orderId;
-		this.amount = amount;
-		this.custName = custName;
-		this.items = items;
-		this.date = date;
+
 	}
+
+
 
 	// getters and setters
 
@@ -71,6 +59,15 @@ public class Order {
 	public void setOrderId(int orderId) {
 		this.orderId = orderId;
 	}
+	
+	public String getCustName() {
+		return custName;
+	}
+
+	public void setCustName(String custName) {
+		this.custName = custName;
+	}
+
 
 	public Double getAmount() {
 		return amount;
@@ -80,28 +77,35 @@ public class Order {
 		this.amount = amount;
 	}
 
-	public String getCustName() {
-		return custName;
+	public String getOrderIdentifier() {
+		return orderIdentifier;
 	}
 
-	public void setCustName(String custName) {
-		this.custName = custName;
+	public void setOrderIdentifier(String orderIdentifier) {
+		this.orderIdentifier = orderIdentifier;
 	}
-
 	public List<Item> getItems() {
 		return items;
 	}
+
+	
 
 	public void setItems(List<Item> items) {
 		this.items = items;
 	}
 
-	public Date getDate() {
-		return date;
+	public Date getCreatedAt() {
+		return createdAt;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
 	}
 
+	@PrePersist	
+	public void onCreate() {
+		
+		this.createdAt= new Date();
+	}
+	
 }
