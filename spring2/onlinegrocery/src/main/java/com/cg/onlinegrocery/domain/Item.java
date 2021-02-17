@@ -1,13 +1,18 @@
 package com.cg.onlinegrocery.domain;
 
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * This class is a pojo for item
@@ -21,7 +26,6 @@ public class Item {
 	@Column(name = "item_id")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@NotBlank(message = "Item ID Required")
 	private int itemId;
 	@NotBlank(message = "Item Name Required")
 	private String itemName;
@@ -29,43 +33,27 @@ public class Item {
 	private double itemPrice;
 	@NotBlank(message = "Item Quantity Required")
 	private int itemQuantity;
+	@Column(updatable = false)
+	private String itemIdentifier;
 
-	@ManyToOne
-	@JoinColumn(name = "order_id")
-	private Order orderId;
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
+	@JoinColumn(name = "order_id",updatable = false, nullable = false)
+	@JsonIgnore
+	private Order order;
+	
+	@Column(updatable = false)
+	private String orderIdentifier;
 
 	public Item() {
-
-	}
-
-	public Item(Order order) {
-		this.orderId = order;
-	}
-
-	/**
-	 * Parameterized constructor
-	 * 
-	 * @param itemId-       gives id of item
-	 * @param itemName-     gives item name
-	 * @param itemPrice-    gives item price
-	 * @param itemQuantity- gives item quantity
-	 * @param orderId-      gives order id
-	 */
-
-	public Item(int itemId, String itemName, double itemPrice, int itemQuantity) {
 		super();
-		this.itemId = itemId;
-		this.itemName = itemName;
-		this.itemPrice = itemPrice;
-		this.itemQuantity = itemQuantity;
-		
 	}
 
 	// getters and setters
-
+	
 	public int getItemId() {
 		return itemId;
 	}
+
 
 	public void setItemId(int itemId) {
 		this.itemId = itemId;
@@ -95,6 +83,24 @@ public class Item {
 		this.itemQuantity = itemQuantity;
 	}
 
+	public String getOrderIdentifier() {
+		return orderIdentifier;
+	}
+
+	public void setOrderIdentifier(String orderIdentifier) {
+		this.orderIdentifier = orderIdentifier;
+	}
+
+
+	public Order getOrder() {
+		return order;
+	}
+
+
+
+	public void setOrder(Order order) {
+		this.order = order;
+	}
 
 
 }
