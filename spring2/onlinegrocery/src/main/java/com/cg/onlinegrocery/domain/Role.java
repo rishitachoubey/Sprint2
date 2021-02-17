@@ -1,4 +1,10 @@
 package com.cg.onlinegrocery.domain;
+/**
+ * Pojo for role
+ * 
+ * @author Rupsi
+ *
+ */
 
 import javax.persistence.*;
 
