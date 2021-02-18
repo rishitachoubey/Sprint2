@@ -13,6 +13,10 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+/** This TrackingStatus class will store all the details of the products
+ *  @author Deepika
+ */
+
 @Entity
 @Table(name = "TrackingStatus")
 public class TrackingStatus {  // Product status
