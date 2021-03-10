@@ -4,6 +4,12 @@ import java.util.Optional;
 
 import com.cg.onlinegrocery.domain.Order_Review;
 
+/**
+ * This class provides the list of services offered by the Order class
+ * @author Jayasri Vejendla
+ *
+ */
+
 public interface OrderReviewService {
 
 	
@@ -15,8 +21,12 @@ public interface OrderReviewService {
 		
 		Optional<Order_Review> OrderReview(int OrderId);
 
-		void CancelOrderById(int id);
+		//Optional<Order_Review> DeleteOrder(int OrderId);
+
+		int removeOrder(int orderId);
+		//String removeOrder(String customerName);
 		
 
 		
 	}
+
