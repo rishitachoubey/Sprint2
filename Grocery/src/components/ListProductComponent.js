@@ -40,6 +40,7 @@ class ListProductComponent extends Component {
                 <h2 className="text-center">Products List</h2>
                 <div className = "row">
                     <button className="btn btn-primary" onClick={this.addProduct}> Add Product</button>
+                    <button className="btn btn-light"><a href="/ViewAllReviewsComponent">View All Reviews</a></button>
                 </div>
                 <br></br>
                 <div className = "row">
@@ -67,7 +68,9 @@ class ListProductComponent extends Component {
                                         <td> {product.availability} </td>
                                         <td>
                                             <button onClick={ () => this.editProduct(product.productName)} className="btn btn-info">Update </button>
-                                           
+                                             <button className="btn btn-light"><a href="/AddUpdateReviewComponent">Add Review</a></button>
+                                             <button className="btn btn-light"><a href="/ViewProductReviewsComponent">View Product Reviews</a></button>
+                                    
                                             <button style={{marginLeft: "10px"}} onClick={ () => this.viewProduct(product.productName)} className="btn btn-info">View </button>
                                             
                                         </td>
