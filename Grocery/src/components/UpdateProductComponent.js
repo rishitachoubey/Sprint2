@@ -86,8 +86,7 @@ class UpdateProductComponent extends Component {
                             </div>
                         </div>
                     </div>
-                </div>
-        )
+                </div>        )
     }
 }
     export default UpdateProductComponent
