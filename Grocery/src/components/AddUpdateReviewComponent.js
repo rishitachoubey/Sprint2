@@ -1,6 +1,6 @@
 //import smiley from "../../public/assets/images/smiley.jpg";
 import React from "react";
-//import smiley from "./imgs/smiley.jpg";
+import smiley from "./imgs/smiley.jpg";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 import {connect} from "react-redux";
