@@ -45,7 +45,7 @@ function App() {
                 <Route path="/about" component={AboutUs}/>
                 <Route path="/Home" component={PlaceOrderComponent}/>
                 <Route path="/AboutUs" component={AboutUs}/>
-                <Route path="/Product" component={Product}/>
+                <Route path="/Product" component={ListProductComponent}/>
                 <Route path="/login" component={Login}/>
                 <Route path="/signUp" component={SignUp}/>
                 <Route path="/forgotPassword" component={ForgotPassword}/>
