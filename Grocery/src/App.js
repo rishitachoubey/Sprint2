@@ -38,9 +38,10 @@ function App() {
                 <Route path = "/add-product" component = {CreateProductComponent}></Route>
                 <Route path = "/update-product/:productName" component = {UpdateProductComponent}></Route>
                 <Route path = "/view-product/:id" component = {ViewProductComponent}></Route>
-                <Route path="/addUpdateReviewComponent" component={AddUpdateReviewComponent}/>
-                <Route path="/viewProductReviewsComponent" component={ViewProductReviewsComponent}/>
-                <Route path="/viewAllReviewsComponent" component={ViewAllReviewsComponent}/>
+                <Route path="/Product" component={Product}/>
+                <Route path="/AddUpdateReviewComponent" component={AddUpdateReviewComponent}/>
+                <Route path="/ViewProductReviewsComponent" component={ViewProductReviewsComponent}/>
+                <Route path="/ViewAllReviewsComponent" component={ViewAllReviewsComponent}/> 
                 <Route path="/about" component={AboutUs}/>
                 <Route path="/login" component={Login}/>
                 <Route path="/signUp" component={SignUp}/>
