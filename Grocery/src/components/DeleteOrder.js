@@ -10,7 +10,7 @@ class DeleteOrder extends Component {
       .then(
         (result) => {
           alert("Are you sure. Order is deleting.");
-          this.props.history.push("/ViewSortingForm");
+          this.props.history.push("/OrderReview");
         },
         (error) => {
           alert("Order is not deleted.");

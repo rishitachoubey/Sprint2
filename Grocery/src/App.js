@@ -4,7 +4,6 @@ import {Provider} from "react-redux";
 import ListProductComponent from './components/ListProductComponent';
 import HeaderComponent from './components/HeaderComponent';           
 import FooterComponent from './components/FooterComponent';
-import { Home } from "./components/Home";
 import {store} from "./store/intial-store";
 import CreateProductComponent from './components/CreateProductComponent';
 import UpdateProductComponent from './components/UpdateProductComponent';
@@ -23,6 +22,8 @@ import ContactUs from './components/ContactUs';
 import ConfirmOrderForm from './components/ConfirmOrderForm';
 import ViewSortingForm from './components/ViewSortingForm';
 import SampleFormById from './components/sampleFormById';
+import DeleteOrder from "./components/DeleteOrder";
+import UpdateOrderForm from "./components/UpdateOrderForm";
 function App() {
   return (
     <div className="App">
@@ -38,14 +39,12 @@ function App() {
                 <Route path = "/add-product" component = {CreateProductComponent}></Route>
                 <Route path = "/update-product/:productName" component = {UpdateProductComponent}></Route>
                 <Route path = "/view-product/:id" component = {ViewProductComponent}></Route>
-                <Route path="/Product" component={Product}/>
                 <Route path="/AddUpdateReviewComponent" component={AddUpdateReviewComponent}/>
                 <Route path="/ViewProductReviewsComponent" component={ViewProductReviewsComponent}/>
                 <Route path="/ViewAllReviewsComponent" component={ViewAllReviewsComponent}/> 
                 <Route path="/about" component={AboutUs}/>
                 <Route path="/Home" component={PlaceOrderComponent}/>
                 <Route path="/AboutUs" component={AboutUs}/>
-                <Route path="/Product" component={ListProductComponent}/>
                 <Route path="/login" component={Login}/>
                 <Route path="/signUp" component={SignUp}/>
                 <Route path="/forgotPassword" component={ForgotPassword}/>
@@ -56,6 +55,8 @@ function App() {
                 <Route path="/sampleFormById" component={SampleFormById}/>
                 <Route path="/home" component={PlaceOrderComponent}/>
                 <Route path="/order-summary"><Ordersummary /> </Route>
+                <Route path="/orderReview" component={DeleteOrder}/>
+                <Route path="/UpdateOrderForm" component={UpdateOrderForm}></Route>
               
                     </Switch>
                     

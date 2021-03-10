@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from "axios";
 import GetOrderForm  from "./GetOrderForm"
-import Service from './Service';
+
 const initialState={
     order_id:"",
     customerName:"",
@@ -98,7 +98,7 @@ const initialState={
               console.log(order) 
               axios.put("http://localhost:8080/api/UpdateOrder",order)
               .then((responseData)=>{
-                this.props.history.push('/ViewSortingForm');
+                this.props.history.push('/OrderReview');
               console.log(" Data Added "+responseData.data)}
               )
               .catch((errorData)=>{console.log("error while adding data")})
@@ -114,7 +114,7 @@ const initialState={
         }
         
       homePage = (event) => {
-        this.props.history.push("/Home");
+        this.props.history.push("/ConfirmOrderForm");
       }
     
    render() 

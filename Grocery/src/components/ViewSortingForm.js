@@ -93,12 +93,12 @@ componentDidMount() {
               onClick={() => this.updateOrder(order.order_id)}
               className="btn btn-success">Update</button></td>
             
-          <td>
+          {/* <td>
             <button
   
               onClick={() => this.deleteOrder(order.order_id)}
               className="btn btn-danger ml-2">Delete</button>
-          </td>
+          </td> */}
             </tr>)});
             return(
                 <div>
@@ -126,7 +126,7 @@ componentDidMount() {
                     <th>OrderPrice</th>
                     <th>Update</th>
                     
-                    <th>Delete</th>
+                    {/* <th>Delete</th> */}
                     </tr>
                      </thead>
                      <tbody>

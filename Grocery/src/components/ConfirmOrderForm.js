@@ -112,7 +112,7 @@ const addressvalidator=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
               )
               .catch((errorData)=>{console.log("error while adding order data")})
               alert("success")
-              this.props.history.push("/ViewSortingForm");
+              this.props.history.push("/OrderReview");
         }else{
             console.log("error")
         }
@@ -131,7 +131,7 @@ const addressvalidator=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
                         <div className = "row">
                             <div className = "col-md-4">
                                 
-                                  <h4>Add Order Details</h4>
+                                  <h4>Confirm Order Details</h4>
                                 
                                 <div>
                                     <form>
