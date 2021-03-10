@@ -10,7 +10,7 @@ public interface ProductService {
 	public Product updateProduct(Product product);
 	public Product findProductByName(String productName);
 	public Product deleteProductByName(String productName);
-	public Iterable<Product> getAllProducts();
+
 	//public void deleteProjectByIdentifier(String projectIdentifier);
 //	Optional<Product> searchProduct(int productId);
 

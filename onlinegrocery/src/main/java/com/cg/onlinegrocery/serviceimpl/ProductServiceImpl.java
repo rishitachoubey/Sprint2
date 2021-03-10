@@ -72,10 +72,6 @@ public class ProductServiceImpl implements ProductService {
 			throw new ProductIdNotFoundException("Product not found : "+productName);
 		}
 	}
-	@Override
-	public Iterable<Product> getAllProducts() {
-		return productRepository.findAll();
-	}
 }
 		
 //		if(productrepository.findById(productId)!=null)

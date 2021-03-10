@@ -6,6 +6,8 @@ import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -30,11 +32,10 @@ public class Order {
 	private String custName;
 
 	private Double amount;
-
-	@NotBlank(message = "Order Identifier required")
-	@Column(unique = true, updatable = false)
-	private String orderIdentifier;
-
+	
+//	@Column(unique = true, updatable = false)
+//	private String orderIdentifier;
+	
 	@Column(name = "ordered_items")
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "order")
 	private List<Item> items = new ArrayList<>();
@@ -78,13 +79,14 @@ public class Order {
 
 	}
 
-	public String getOrderIdentifier() {
-		return orderIdentifier;
-	}
-
-	public void setOrderIdentifier(String orderIdentifier) {
-		this.orderIdentifier = orderIdentifier;
-	}
+//	public String getOrderIdentifier() {
+//		return orderIdentifier;
+//	}
+//
+//	public void setOrderIdentifier(String orderIdentifier) {
+//		this.orderIdentifier = orderIdentifier;
+//	}
+	
 
 	@JsonManagedReference
 	public List<Item> getItems() {

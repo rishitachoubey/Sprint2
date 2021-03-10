@@ -52,12 +52,6 @@ public class ProductController {
 		return new ResponseEntity<Product>(product,HttpStatus.OK);
 	}
 	
-	 @GetMapping("/allproducts")
-		public Iterable<Product> getAllProduct()
-		{
-			return service.getAllProducts();
-		}
-	
 //	@GetMapping("/{email}")
 //	public ResponseEntity<?> viewProfile(@PathVariable String email){
 //		User user = userservice.findUserByEmail(email);

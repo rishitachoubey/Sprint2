@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,6 +27,7 @@ import com.cg.onlinegrocery.service.OrderService;
  */
 @RestController
 @RequestMapping("/api/orders")
+@CrossOrigin
 
 public class OrderController {
 
@@ -44,22 +46,22 @@ public class OrderController {
 		return new ResponseEntity<Order>(ord, HttpStatus.OK);
 	}
 
-	@GetMapping("/{orderIdentifier}")
-	public ResponseEntity<?> getOrderByIdentifier(@PathVariable String orderIdentifier) {
-		Order order = orderService.findOrderByOrderIdentifier(orderIdentifier.toUpperCase());
-		return new ResponseEntity<Order>(order, HttpStatus.OK);
-	}
+//	@GetMapping("/{orderIdentifier}")
+//	public ResponseEntity<?> getOrderById(@PathVariable String orderIdentifier) {
+//		Order order = orderService.findOrderByOrderIdentifier(orderIdentifier);
+//		return new ResponseEntity<Order>(order, HttpStatus.OK);
+//	}
 
 	@GetMapping("/all")
 	public Iterable<Order> getAllOrders() {
 		return orderService.getAllOrders();
 	}
 
-	@DeleteMapping("/{orderIdentifier}")
-	public ResponseEntity<?> deleteOrder(@PathVariable String orderIdentifier) {
-		orderService.deleteOrderByIdentifier(orderIdentifier);
-		return new ResponseEntity<String>("Order with id : " + orderIdentifier.toUpperCase() + " deleted successfully.",
-				HttpStatus.OK);
-	}
+//	@DeleteMapping("/{orderIdentifier}")
+//	public ResponseEntity<?> deleteOrder(@PathVariable String orderIdentifier) {
+//		orderService.deleteOrderByIdentifier(orderIdentifier);
+//		return new ResponseEntity<String>("Order with id : " + orderIdentifier.toUpperCase() + " deleted successfully.",
+//				HttpStatus.OK);
+//	}
 
 }

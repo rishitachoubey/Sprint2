@@ -13,6 +13,6 @@ import com.cg.onlinegrocery.domain.Order;
  */
 @Repository
 public interface OrderRepository extends CrudRepository<Order, Integer> {
-	Order findByOrderIdentifier(String orderIdentifier);	
+	//Order findByOrderIdentifier(String orderIdentifier);	
 
 }

@@ -14,10 +14,10 @@ public interface OrderService  {
 	
 	public Order saveOrUpdate(Order order);
 	
-	public Order findOrderByOrderIdentifier(String orderIdentifier);
+//	public Order findOrderByOrderIdentifier(String orderIdentifier);
 	
 	public Iterable<Order> getAllOrders();
 	
-	public void deleteOrderByIdentifier(String orderIdentifier);
+//	public void deleteOrderByIdentifier(String orderIdentifier);
 
 }
