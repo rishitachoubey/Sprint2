@@ -120,65 +120,70 @@ const initialState={
    render() 
    {
        return (
-           <div className="div">
-               <br></br>
-                  <div className = "container">
-                  
-                       <div className = "row">
-                           <div className = "card col-md-4 offset-md-3 offset-md-2">
-                               {
-                                 <h4 className="h3">Update Order Details</h4>
-                               }
-                               <div className = "card-body">
-                                   <form className="form" >
-                                   <div className = "form-group">
-                                   <label class="control-label col-sm-2" for="order_id">order_id:</label>
-                                          <input placeholder="Enter the order_id" id="order_id" name="order_id" className="form-control" 
-                                              value={this.state.order_id} onChange={this.changeorder_idHandler} />
-                                      </div>
+           <div>
+                <div className = "container">
+                        <div className = "row">
+                            <div className = "col-md-4">
+                                
+                                  <h4>Confirm Order Details</h4>
+                                
+                                <div>
+                                    <form>
 
+                                        <div className = "form-group">
+                                            <label class="control-label col-sm-2" for="order_id">Order_id:</label>
+                                            <input placeholder="Enter the id" id="order_id" name="order_id" className="form-control" 
+                                                  value={this.state.order_id} onChange={this.changeorder_idHandler}/>
+                                        </div>
                                     <div className = "form-group">
-                                    <label class="control-label col-sm-2" for="customerName">customerName:</label>
-                                           <input placeholder="Enter the customer name" id="customerName" name="customerName" className="form-control" 
-                                               value={this.state.customerName} onChange={this.changecustomerNameHandler} />
-                                       </div>
-                                       <div style={{color: "red"}}>{this.state.nameerror}</div> 
+                                            <label class="control-label col-sm-2" for="customerName">customerName:</label>
+                                            <input placeholder="Enter the customer name" id="customerName" name="customerName" className="form-control" 
+                                                  value={this.state.customerName} onChange={this.changecustomerNameHandler}/>
+                                        </div>
+                                        <span style={{color:"red"}}>{this.state.nameerror}</span>
 
+                                        
+                                        <div className = "form-group">
+                                            <label class="control-label col-sm-2" for="phoneNumber">phoneNumber:</label>
+                                            <input placeholder="Enter the phone number" id="phoneNumber" name="phoneNumber" className="form-control" 
+                                                value={this.state.phoneNumber} onChange={this.changephoneNumberHandler}/>
+                                        </div>
+                                        
+                                        <div className = "form-group">
+                                        <label class="control-label col-sm-2" for="address">address:</label>
+                                            <input placeholder="Enter the address" id="address" name="address" className="form-control" 
+                                                value={this.state.address} onChange={this.changeaddressHandler}/>
+                                        </div>
+                                        <span style={{color: "red"}}>{this.state.addresserror}</span>
+                              
 
-                                       <div className = "form-group">
-                                    <label class="control-label col-sm-2" for="phoneNumber">phoneNumber:</label>
-                                           <input placeholder="Enter the phoneNumber" id="phoneNumber" name="phoneNumber" className="form-control" 
-                                               value={this.state.phoneNumber} onChange={this.changephoneNumberHandler} />
-                                       </div>
-                                       
+                                        <div className = "form-group">
+                                        <label class="control-label col-sm-2" for="orderDescription">orderDescription</label>  
+                                            <input type="orderDescription" placeholder="Enter the OrderDescription" id="orderDescription" name="orderDescription" className="form-control" 
+                                                value={this.state.orderDescription} onChange={this.changeorderDescriptionHandler}/>
+                                        </div>
 
-
-                                       <div className = "form-group">
-                                           <label class="control-label col-sm-2" for="address">Address:</label>
-                                           <input placeholder="Enter the address" id="address" name="address" className="form-control" 
-                                               value={this.state.address} onChange={this.changeaddressHandler}/>
-                                       </div>
-                                       
-
-
-                                       <div className = "form-group">
-                                       <label class="control-label col-sm-2" for="orderDescription">orderDescription:</label>
-                                           <input placeholder="Enter the description" id="oorderDescription"name="orderDescription" className="form-control" 
-                                               value={this.state.orderDescription} onChange={this.changeorderDescriptionHandler}/>
-                                       </div>
-                                       
-                             
-
-                                       <div className = "form-group">
-                                       <label class="control-label col-sm-2" for="orderPrice">orderPriec:</label>  
-                                           <input placeholder="Enter the price" id="orderPrice" name="orderPrice" className="form-control" 
-                                               value={this.state.orderPrice} onChange={this.changeorderPriceHandler}/>
-                                       </div>
-                                      
- 
-                                       <button type="button"  className="btn btn-success" style={{marginLeft: "100px"}} onClick={this.handlesubmit}  >Update</button>
-                                       <button className="btn btn-danger" style={{marginLeft: "10px"}} onClick={this.homePage}>Cancel</button>
-                                   </form>
+                                        <div className = "form-group">
+                                        <label class="control-label col-sm-2" for="orderPrice">orderPrice</label>  
+                                            <input type="orderPrice" placeholder="Enter the Orderprice" id="orderPrice" name="orderPrice" className="form-control" 
+                                                value={this.state.orderPrice} onChange={this.changeorderPriceHandler}/>
+                                        </div>
+                                            <div className = "form-group">
+                                        <label 
+                                            class="control-label col-sm-2" 
+                                            for="payment">payment</label>  
+                                            <input type="payment" 
+                                                placeholder="Cash On Delivery" 
+                                                id="payment" 
+                                                name="payment" 
+                                                className="form-control" 
+                                                value={this.state.payment}/>
+                                        </div>
+                                        
+  
+                                        <button  className="btn btn-success"  style={{marginLeft: "100px"}} onClick={this.handleSubmit} >Confirm</button>
+                                        <button className="btn btn-danger" style={{marginLeft: "10px"}} onClick={this.homePage} >Cancel</button>
+                                    </form>
                                </div>
                            </div>
                        </div>
