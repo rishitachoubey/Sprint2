@@ -8,6 +8,7 @@ import axios from "axios";
         orderDescription: "",
         orderPrice: "",
         phoneNumber: "",
+        payment:"Cash On Delivery",
 
             nameerror:"",
             addresserror:"",
@@ -100,7 +101,8 @@ const addressvalidator=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
                 phoneNumber: this.state.phoneNumber,
                 address: this.state.address,
                 orderDescription:this.state.orderDescription,
-                orderPrice:this.state.orderPrice
+                orderPrice:this.state.orderPrice,
+                 payment:"cash on delivery"
               };
               console.log(order);
               axios.post("http://localhost:8080/api/ConfirmOrder",order)
@@ -166,6 +168,17 @@ const addressvalidator=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
                                         <label class="control-label col-sm-2" for="orderPrice">orderPrice</label>  
                                             <input type="orderPrice" placeholder="Enter the Orderprice" id="orderPrice" name="orderPrice" className="form-control" 
                                                 value={this.state.orderPrice} onChange={this.changeorderPriceHandler}/>
+                                        </div>
+                                            <div className = "form-group">
+                                        <label 
+                                            class="control-label col-sm-2" 
+                                            for="payment">payment</label>  
+                                            <input type="payment" 
+                                                placeholder="Cash On Delivery" 
+                                                id="payment" 
+                                                name="payment" 
+                                                className="form-control" 
+                                                value={this.state.payment}/>
                                         </div>
                                         
   
