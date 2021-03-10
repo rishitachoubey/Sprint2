@@ -4,6 +4,7 @@ import items from "../data/product.json";
 import { StoreContext } from "../store/context";
 import { useDispatch } from "react-redux";
 import { addOrderIdentifier } from "../actions/order-action";
+import ViewProductReviewsComponent from "./ViewProductReviewsComponent";
  
 export const PlaceOrderComponent = () => {
   const history = useHistory();
