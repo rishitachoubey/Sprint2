@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
-import ProductService from '../services/ProductService.js'
- 
+import ProductService from '../services/ProductService'
+
+
 class ListProductComponent extends Component {
     constructor(props){
         super(props)
 
         this.state = {
-           
             products: []
         }
         this.addProduct = this.addProduct.bind(this);
@@ -33,7 +32,7 @@ class ListProductComponent extends Component {
     }
 
     addProduct(){
-        this.props.history.push('/addProduct');
+        this.props.history.push('/add-product/_add');
     }
     render(){
         return (
@@ -41,7 +40,6 @@ class ListProductComponent extends Component {
                 <h2 className="text-center">Products List</h2>
                 <div className = "row">
                     <button className="btn btn-primary" onClick={this.addProduct}> Add Product</button>
-                    
                 </div>
                 <br></br>
                 <div className = "row">
@@ -54,6 +52,7 @@ class ListProductComponent extends Component {
                                 <th> Product Description </th>
                                 <th> Avaliability </th>
                                 <th> Actions </th>  
+                               
                             </tr>
                         </thead>
 
@@ -62,18 +61,15 @@ class ListProductComponent extends Component {
                                 this.state.products.map(
                                     product =>
                                     <tr key = {product.id}>
-                    <td> {product.productName} </td>
-                    
-                                    
+                                        <td> {product.productName} </td>
                                         <td> {product.productAmount} </td>
                                         <td> {product.productDescription} </td>
                                         <td> {product.availability} </td>
                                         <td>
                                             <button onClick={ () => this.editProduct(product.productName)} className="btn btn-info">Update </button>
-                                            <Link to="/AddUpdateReviewComponent"><button  className="btn btn-secondary  ml-2">Add Review
-                                            </button></Link>
-                                            <Link  to="/ViewProductReviewsComponent"><button  className="btn btn-warning text-white ml-2">View Product Reviews </button></Link>
-                                            <button  onClick={ () => this.viewProduct(product.productName)} className="btn btn-success ml-2">View </button>
+                                           
+                                            <button style={{marginLeft: "10px"}} onClick={ () => this.viewProduct(product.productName)} className="btn btn-info">View </button>
+                                            
                                         </td>
                                     </tr>
                                 )
