@@ -129,6 +129,7 @@ export const Item = ({ id, price, name, productDescription, imageUri }) => {
               +
             </button>
             <button className="btn btn-light" ><a href="/AddUpdateReviewComponent">Add Review</a></button>
+            <ViewProductReviewsComponent product_id={id}/>
           </div>
         </div>
       </div>
