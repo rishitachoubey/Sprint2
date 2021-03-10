@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ProductService from '../services/ProductService.js';
+import ProductService from '../services/ProductService';
 
 class CreateProductComponent extends Component {
     constructor (props) {
