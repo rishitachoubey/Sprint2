@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
+import stars from "./imgs/stars.jpg";
 import {deleteReview} from "../actions/reviewActions";
 
 class ReviewItem extends Component {
@@ -17,12 +18,12 @@ class ReviewItem extends Component {
                     Review ID : {review.reviewId}
                 </div>
                 <div className="card-body bg-light">
-                    <p className="card-text">Rating : {review.rating} Stars</p>
+                    <p className="card-text">Rating : {review.rating}&nbsp;
+                        <img src={stars} className="img-responsive" alt="Stars" width="20" height ="20"/><br/>
+                    </p>
                     <p className="card-text">Feedback : {review.feedback}</p>
                     <button className="btn btn-danger ml-4" 
-                            onClick={this.onDeleteClick.bind(this, review.reviewId)}> 
-                                Delete 
-                    </button>
+                        onClick={this.onDeleteClick.bind(this, review.reviewId)}> Delete </button>                     
                 </div>
             </div>
         )

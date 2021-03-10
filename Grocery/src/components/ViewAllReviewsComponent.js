@@ -24,7 +24,7 @@ class ViewAllReviewsComponent extends React.Component {
                         No Reviews Available For Any Products As Yet.
                         <br/><br/>
                     </div>
-                )
+                );
             } 
             else {
                 const individualReview = reviews.map(review => (
@@ -32,7 +32,7 @@ class ViewAllReviewsComponent extends React.Component {
             ));
             
             for(let i=0; i<individualReview.length; i++) {
-                listOfReviews.push(individualReview[i])
+                listOfReviews.push(individualReview[i]);
             }
 
             return(
@@ -43,7 +43,7 @@ class ViewAllReviewsComponent extends React.Component {
                     </div>
                     
                 </React.Fragment>
-            )
+            );
           }
         };
 

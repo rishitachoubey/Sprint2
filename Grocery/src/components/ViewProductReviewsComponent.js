@@ -2,7 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import {getAllReviews} from "../actions/reviewActions";
-import ReviewItem from "./ReviewItem";
+import ProductReviewItem from "./ProductReviewItem";
 
 class ViewProductReviewsComponent extends React.Component {
 
@@ -21,32 +21,40 @@ class ViewProductReviewsComponent extends React.Component {
                 return(
                     <div className="alert alert-info text-center" role="alert">
                         <br/>
-                        No Reviews Available For The Product.
+                        No Reviews Available For Any Product.
                         <br/><br/>
                     </div>
-                )
+                );
             } 
             else {
                 const individualReview = reviews.map(review => (
-                    <ReviewItem key={review.reviewId} review={review}/>
+                    <ProductReviewItem key={review.reviewId} review={review}/>
             ));
             
             for(let i=0; i<individualReview.length; i++) {
-                if(individualReview[i].props.review.product.productId==1){
-                    listOfProductReviews.push(individualReview[i])
-                }          
+                if(individualReview[i].props.review.product.productId==this.props.product_id){
+                    listOfProductReviews.push(individualReview[i]);
+                }        
             }
+            if(listOfProductReviews.length <= 0) {
+                return(
+                    <div className="alert alert-info text-center" role="alert">
+                        <br/>
+                        No Reviews Available For The Product.
+                        <br/><br/>
+                    </div>
+                );
+            } 
 
             return(
                 <React.Fragment>
                     <div className="text-center" style={{ background: '#ffd1dc'}}>
-                        <br/><h3>Reviews Of A Products</h3><br/>
+                        <h5>Product Reviews</h5>
                         {listOfProductReviews}
                     </div>
                     
                 </React.Fragment>
             )
-
           }
         };
 
