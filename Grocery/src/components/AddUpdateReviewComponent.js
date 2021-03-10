@@ -1,5 +1,6 @@
-import React from "react";
 //import smiley from "../../public/assets/images/smiley.jpg";
+import React from "react";
+//import smiley from "./imgs/smiley.jpg";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 import {connect} from "react-redux";
@@ -26,12 +27,16 @@ class AddUpdateReviewComponent extends React.Component {
     onSubmit = (event) => {
         event.preventDefault();
         let rating = this.state.rating;
+        let productId = this.state.productId;
         if (rating!="" && !Number(rating)) {
           alert("Rating must be a Number!");
         }
         else if(rating<1||rating>10) {
             alert("Rating must be a Number between 0 and 10!");
         }
+        else if (productId!="" && !Number(productId)) {
+            alert("Product ID is a mandatory field and must be a Valid Number!");
+          }
         else {
             const newReview = {
                 rating:this.state.rating,
@@ -72,7 +77,7 @@ class AddUpdateReviewComponent extends React.Component {
                                 <h6>Kindly take a minute to share your feedback.</h6><br/>
                             </div>
                             <div className="text-center">
-                                <img src="../../public/assets/images/smiley.jpg" className="img-responsive" alt="Smiley Feedback" width="320" height ="100"/><br/><br/>
+                                <img src={smiley} className="img-responsive" alt="Smiley Feedback" width="320" height ="100"/><br/><br/>
                             </div>
                             <div className="md-form">
                                 <i className="fas fa-user prefix white-text"></i>
@@ -93,34 +98,6 @@ class AddUpdateReviewComponent extends React.Component {
                                 <label htmlFor="orangeForm-pass">Product ID : </label>
                                 <input type="productId" id="orangeForm-pass" name="productId"
                                     value={this.state.productId} className="form-control" placeholder="Enter Product ID" 
-                                    onChange={this.onChange} /><br/>                               
-                            </div>
-                            <div className="md-form">
-                                <i className="fas fa-lock prefix white-text"></i>
-                                <label htmlFor="orangeForm-pass">Product Name : </label>
-                                <input type="productName" id="orangeForm-pass" name="productName"
-                                    value={this.state.productName} className="form-control" placeholder="Enter Product Name" 
-                                    onChange={this.onChange} /><br/>                               
-                            </div>
-                            <div className="md-form">
-                                <i className="fas fa-lock prefix white-text"></i>
-                                <label htmlFor="orangeForm-pass">Product Amount : </label>
-                                <input type="productAmount" id="orangeForm-pass" name="productAmount"
-                                    value={this.state.productAmount} className="form-control" placeholder="Enter Product Amount" 
-                                    onChange={this.onChange} /><br/>                               
-                            </div>
-                            <div className="md-form">
-                                <i className="fas fa-lock prefix white-text"></i>
-                                <label htmlFor="orangeForm-pass">Product Description : </label>
-                                <input type="productDescription" id="orangeForm-pass" name="productDescription"
-                                    value={this.state.productDescription} className="form-control" placeholder="Enter Product Description" 
-                                    onChange={this.onChange} /><br/>                               
-                            </div>
-                            <div className="md-form">
-                                <i className="fas fa-lock prefix white-text"></i>
-                                <label htmlFor="orangeForm-pass">Product Availability : </label>
-                                <input type="productAvailability" id="orangeForm-pass" name="productAvailability"
-                                    value={this.state.productAvailability} className="form-control" placeholder="Enter Product Availability" 
                                     onChange={this.onChange} /><br/>                               
                             </div>
                             <div className="text-center">
