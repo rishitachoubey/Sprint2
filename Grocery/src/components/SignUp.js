@@ -1,5 +1,5 @@
 import React from 'react';
-//import './SignUp.css';
+import '../assets/styles/SignUp.css';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {registration} from '../actions/userActions';
