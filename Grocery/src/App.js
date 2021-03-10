@@ -24,6 +24,8 @@ import ViewSortingForm from './components/ViewSortingForm';
 import SampleFormById from './components/sampleFormById';
 import DeleteOrder from "./components/DeleteOrder";
 import UpdateOrderForm from "./components/UpdateOrderForm";
+import Seestatus from './components/Seestatus';
+import Update from './components/Update';
 function App() {
   return (
     <div className="App">
@@ -57,6 +59,8 @@ function App() {
                 <Route path="/order-summary"><Ordersummary /> </Route>
                 <Route path="/orderReview" component={DeleteOrder}/>
                 <Route path="/UpdateOrderForm" component={UpdateOrderForm}></Route>
+                <Route path='/update' exact component={Update}/>
+                <Route path='/status' exact component={Seestatus}/>
               
                     </Switch>
                     
