@@ -35,9 +35,9 @@ function App() {
             <Switch>
                 
                 <Route path = "/products" component = {ListProductComponent}></Route>
-                <Route path = "/addProduct" component = {CreateProductComponent}></Route>
-                <Route path = "/updateProduct/:productName" component = {UpdateProductComponent}></Route>
-                <Route path = "/viewProduct/:id" component = {ViewProductComponent}></Route>
+                <Route path = "/add-product" component = {CreateProductComponent}></Route>
+                <Route path = "/update-product/:productName" component = {UpdateProductComponent}></Route>
+                <Route path = "/view-product/:id" component = {ViewProductComponent}></Route>
                 <Route path="/addUpdateReviewComponent" component={AddUpdateReviewComponent}/>
                 <Route path="/viewProductReviewsComponent" component={ViewProductReviewsComponent}/>
                 <Route path="/viewAllReviewsComponent" component={ViewAllReviewsComponent}/>
